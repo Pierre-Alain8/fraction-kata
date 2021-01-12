@@ -1,9 +1,15 @@
 export class Fraction {
     constructor( private numerator: number, 
-    denominator: number) {
+    private denominator: number) {
     }
 
     static add (fractionA: Fraction, fractionB: Fraction) {
-        return new Fraction(fractionA.numerator + fractionB.numerator, 1);
-    }
+        if(fractionA.denominator === fractionB.denominator){
+            return new Fraction( 
+                fractionA.numerator + fractionB.numerator, fractionB.denominator);
+            }
+
+            return new Fraction((fractionA.numerator * fractionB.denominator) + 
+            fractionB.numerator, fractionB.denominator);
+        } 
 }
